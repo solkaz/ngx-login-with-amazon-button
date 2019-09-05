@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-login-with-amazon-button": [
+        "dist/ngx-login-with-amazon-button"
+      ],
+      "ngx-login-with-amazon-button/*": [
+        "dist/ngx-login-with-amazon-button/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
