@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ngx-login-with-amazon-button",
       "sourceRoot": "projects/ngx-login-with-amazon-button/src",
-      "prefix": "lib",
+      "prefix": "lwa",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -31,12 +31,11 @@
               "projects/ngx-login-with-amazon-button/tsconfig.lib.json",
               "projects/ngx-login-with-amazon-button/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "NgxLoginWithAmazonButton"
 }
