@@ -4,5 +4,8 @@
   "peerDependencies": {
     "@angular/common": "^8.2.4",
     "@angular/core": "^8.2.4"
+  },
+  "dependencies": {
+    "@types/login-with-amazon-sdk-browser": "^1.0.0"
   }
 }
