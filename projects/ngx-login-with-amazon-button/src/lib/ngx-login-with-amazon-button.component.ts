@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.service';
 
 @Component({
   selector: 'lwa-button',
@@ -15,7 +16,7 @@ import { Component, OnInit, Input } from '@angular/core';
   `,
   styles: [],
 })
-export class NgxLoginWithAmazonButtonComponent implements OnInit {
+export class NgxLoginWithAmazonButtonComponent  {
   @Input() height = 32;
   @Input() width = 156;
   /**
@@ -23,7 +24,11 @@ export class NgxLoginWithAmazonButtonComponent implements OnInit {
    * [Login With Amazon docs](https://developer.amazon.com/docs/login-with-amazon/button.html#website-images)
    */
   @Input() src: string;
-  constructor() {}
+  /**
+   * If specified, will be passed to `authorize` as the `next` argument,
+   * which will route the user to `nextUrl` if successfully authorized.
+   */
+  @Input() nextUrl?: string;
+  constructor(private lwa: NgxLoginWithAmazonButtonService) {}
 
-  ngOnInit() {}
 }

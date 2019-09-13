@@ -2,7 +2,20 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NgxLoginWithAmazonButtonComponent } from './ngx-login-with-amazon-button.component';
 import { Component } from '@angular/core';
+import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.service';
+import { LWA_CLIENT_ID, LWA_SDK_OBJECT } from './injection-tokens';
 
+const providers = [
+  {
+    provide: LWA_CLIENT_ID,
+    useValue: 'testId',
+  },
+  {
+    provide: LWA_SDK_OBJECT,
+    useValue: jasmine.createSpyObj('lwaSdk', ['authorize', 'setClientId']),
+  },
+  NgxLoginWithAmazonButtonService,
+];
 describe('NgxLoginWithAmazonButtonComponent', () => {
   describe('Standalone tests', () => {
     let component: NgxLoginWithAmazonButtonComponent;
@@ -11,6 +24,7 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         declarations: [NgxLoginWithAmazonButtonComponent],
+        providers,
       }).compileComponents();
     }));
 
@@ -48,6 +62,7 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         declarations: [NgxLoginWithAmazonButtonComponent, TestHostComponent],
+        providers,
       }).compileComponents();
     }));
 
