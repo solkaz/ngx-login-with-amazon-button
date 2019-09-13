@@ -1,24 +1,66 @@
 # NgxLoginWithAmazonButton
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.4.
+## Installation
 
-## Code scaffolding
+You need to include `@types/login-with-amazon-sdk-browser` in `devDependencies`:
 
-Run `ng generate component component-name --project NgxLoginWithAmazonButton` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project NgxLoginWithAmazonButton`.
-> Note: Don't forget to add `--project NgxLoginWithAmazonButton` or else it will be added to the default project in your `angular.json` file. 
+NPM:
 
-## Build
+```sh
+npm install -D @types/login-with-amazon-sdk-browser
+npm install ngx-login-with-amazon-button
+```
 
-Run `ng build NgxLoginWithAmazonButton` to build the project. The build artifacts will be stored in the `dist/` directory.
+Yarn:
 
-## Publishing
+```sh
+yarn add -D @types/login-with-amazon-sdk-browser
+yarn add ngx-login-with-amazon-button
+```
 
-After building your library with `ng build NgxLoginWithAmazonButton`, go to the dist folder `cd dist/ngx-login-with-amazon-button` and run `npm publish`.
+### Login with Amazon SDK Installation
 
-## Running unit tests
+Refer to the [Login with Amazon documentation](https://developer.amazon.com/docs/login-with-amazon/web-docs.html).
 
-Run `ng test NgxLoginWithAmazonButton` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Usage
 
-## Further help
+Include the `NgxLoginWithAmazonButtonModule` in the `imports` when declaring an Angular module, as well as providing the following values:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- `LWA_CLIENT_ID` - Client ID for your application. This must be provided.
+- `LWA_SDK_OBJECT` - Object that has the Login with Amazon SDK methods.
+
+Example:
+
+```ts
+import { NgModule } from "@angular/core";
+import {
+  LWA_CLIENT_ID,
+  LWA_SDK_OBJECT,
+  NgxLoginWithAmazonButtonModule,
+} from "ngx-login-with-amazon-button";
+
+@NgModule({
+  // ...
+  imports: [NgxLoginWithAmazonButtonModule],
+  providers: [
+    {
+      provide: LWA_CLIENT_ID,
+      useValue: "myClientId",
+    },
+    {
+      provide: LWA_SDK_OBJECT,
+      useValue: amazon.Login,
+    },
+  ],
+  // ...
+})
+export class AppModule {}
+```
+
+## Testing
+
+TODO
+
+## License
+
+[MIT](./LICENSE)
