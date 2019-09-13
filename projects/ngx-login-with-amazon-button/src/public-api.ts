@@ -5,3 +5,4 @@
 export * from './lib/ngx-login-with-amazon-button.service';
 export * from './lib/ngx-login-with-amazon-button.component';
 export * from './lib/ngx-login-with-amazon-button.module';
+export * from './lib/injection-tokens';
