@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.service';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'lwa-button',
   template: `
     <a href id="LoginWithAmazon">
