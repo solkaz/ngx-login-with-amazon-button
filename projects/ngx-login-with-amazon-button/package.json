@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^8.2.4",
-    "@angular/core": "^8.2.4"
+    "@angular/core": "^8.2.4",
+    "@types/login-with-amazon-sdk-browser": "^1.0.0"
   },
   "dependencies": {
     "@types/login-with-amazon-sdk-browser": "^1.0.0"
