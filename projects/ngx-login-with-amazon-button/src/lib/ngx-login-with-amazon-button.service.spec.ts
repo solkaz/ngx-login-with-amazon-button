@@ -1,28 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
 import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.service';
-import { LWA_CLIENT_ID, LWA_SDK_OBJECT } from './injection-tokens';
-
-type LwaSdk = typeof amazon.Login;
-const lwaSdkMock: LwaSdk = jasmine.createSpyObj<LwaSdk>('lwaSdk', [
-  'authorize',
-  'setClientId',
-]);
+import { mockLwaSdkProviders, lwaSdkMock } from './test-injection-tokens';
 
 describe('NgxLoginWithAmazonButtonService', () => {
   describe('with TestBed', () => {
     beforeEach(() =>
       TestBed.configureTestingModule({
-        providers: [
-          {
-            provide: LWA_CLIENT_ID,
-            useValue: 'myClientId',
-          },
-          {
-            provide: LWA_SDK_OBJECT,
-            useValue: lwaSdkMock,
-          },
-        ],
+        providers: mockLwaSdkProviders,
       })
     );
 
