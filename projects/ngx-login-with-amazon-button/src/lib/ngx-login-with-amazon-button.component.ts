@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'lwa-button',
   template: `
-    <a href id="LoginWithAmazon">
+    <a href id="LoginWithAmazon" (click)="handleOnClick()">
       <img
         [src]="src"
         [width]="width"
@@ -17,7 +17,7 @@ import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.
   `,
   styles: [],
 })
-export class NgxLoginWithAmazonButtonComponent  {
+export class NgxLoginWithAmazonButtonComponent {
   @Input() height = 32;
   @Input() width = 156;
   /**
@@ -30,6 +30,23 @@ export class NgxLoginWithAmazonButtonComponent  {
    * which will route the user to `nextUrl` if successfully authorized.
    */
   @Input() nextUrl?: string;
+
+  @Input() options: AuthorizeOptions = {
+    scope: ['postal_code', 'profile', 'profile:user_id'],
+  };
+
+  @Output() authorize = new EventEmitter<AuthorizeRequest>();
+
   constructor(private lwa: NgxLoginWithAmazonButtonService) {}
 
+  handleOnClick = () => {
+    this.lwa.lwaSdk.authorize(
+      this.options,
+      this.nextUrl || this.handleOnAuthorize
+    );
+  }
+
+  handleOnAuthorize = (event: AuthorizeRequest) => {
+    this.authorize.emit(event);
+  }
 }

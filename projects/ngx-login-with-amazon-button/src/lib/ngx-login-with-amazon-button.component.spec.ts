@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgxLoginWithAmazonButtonComponent } from './ngx-login-with-amazon-button.component';
 import { Component } from '@angular/core';
 import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.service';
-import { mockLwaSdkProviders } from './test-injection-tokens';
+import { mockLwaSdkProviders, lwaSdkMock } from './test-injection-tokens';
 
 describe('NgxLoginWithAmazonButtonComponent', () => {
   beforeEach(async(() => {
@@ -34,6 +34,26 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
         .querySelector('img');
       expect(button.width).toBe(156);
       expect(button.height).toBe(32);
+    });
+
+    it('uses options when calling authorize', () => {
+      component.handleOnClick();
+      expect(lwaSdkMock.authorize).toHaveBeenCalledTimes(1);
+
+      expect(
+        (lwaSdkMock.authorize as jasmine.Spy).calls.mostRecent().args[0]
+      ).toEqual({
+        scope: ['postal_code', 'profile', 'profile:user_id'],
+      } as AuthorizeOptions);
+      const options: AuthorizeOptions = {
+        scope: ['profile:user_id'],
+      };
+      component.options = options;
+      component.handleOnClick();
+      expect(lwaSdkMock.authorize).toHaveBeenCalledTimes(2);
+      expect(
+        (lwaSdkMock.authorize as jasmine.Spy).calls.mostRecent().args[0]
+      ).toBe(options);
     });
   });
 
