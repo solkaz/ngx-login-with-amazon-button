@@ -3,12 +3,21 @@ import { Provider } from '@angular/core';
 
 type LwaSdk = typeof amazon.Login;
 
-export const lwaSdkMock: LwaSdk = jasmine.createSpyObj<LwaSdk>('lwaSdk', [
+const lwaSdkMock: LwaSdk = jasmine.createSpyObj<LwaSdk>('lwaSdk', [
   'authorize',
   'setClientId',
 ]);
 
-export const mockLwaSdkProviders: Provider[] = [
+(lwaSdkMock.authorize as jasmine.Spy).and.callFake(
+  (options: any, next: NextCallback<any>) => {
+    if (typeof next === 'string') {
+      return;
+    }
+    next(options);
+  }
+);
+
+const mockLwaSdkProviders: Provider[] = [
   {
     provide: LWA_CLIENT_ID,
     useValue: 'myClientId',
@@ -18,3 +27,5 @@ export const mockLwaSdkProviders: Provider[] = [
     useValue: lwaSdkMock,
   },
 ];
+
+export { lwaSdkMock, mockLwaSdkProviders };

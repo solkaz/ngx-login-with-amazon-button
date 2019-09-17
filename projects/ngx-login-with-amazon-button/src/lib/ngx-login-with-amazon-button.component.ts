@@ -5,7 +5,7 @@ import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.
   // tslint:disable-next-line: component-selector
   selector: 'lwa-button',
   template: `
-    <a href id="LoginWithAmazon" (click)="handleOnClick()">
+    <a id="LoginWithAmazon" (click)="handleOnClick()">
       <img
         [src]="src"
         [width]="width"
@@ -37,11 +37,11 @@ export class NgxLoginWithAmazonButtonComponent {
 
   @Output() authorize = new EventEmitter<AuthorizeRequest>();
 
-  constructor(private lwa: NgxLoginWithAmazonButtonService) {}
+  constructor(public lwa: NgxLoginWithAmazonButtonService) {}
 
   handleOnClick = () => {
     this.lwa.lwaSdk.authorize(
-      this.options,
+      this.options as any,
       this.nextUrl || this.handleOnAuthorize
     );
   }

@@ -5,6 +5,14 @@ import { Component } from '@angular/core';
 import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.service';
 import { mockLwaSdkProviders, lwaSdkMock } from './test-injection-tokens';
 
+function queryAmazonButton(el: HTMLElement) {
+  return el.querySelector('#LoginWithAmazon') as HTMLAnchorElement;
+}
+
+function queryAmazonButtonImage(el: HTMLElement) {
+  return queryAmazonButton(el).querySelector('img') as HTMLImageElement;
+}
+
 describe('NgxLoginWithAmazonButtonComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -28,21 +36,17 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
       fixture.detectChanges();
     });
 
-    it('has a default width and height for the button', () => {
-      const button = (fixture.nativeElement as HTMLElement)
-        .querySelector('a')
-        .querySelector('img');
+    it('has default width and height values', () => {
+      const button = queryAmazonButtonImage(fixture.nativeElement);
       expect(button.width).toBe(156);
       expect(button.height).toBe(32);
     });
 
     it('uses options when calling authorize', () => {
+      const authorizeSpy = lwaSdkMock.authorize as jasmine.Spy;
       component.handleOnClick();
-      expect(lwaSdkMock.authorize).toHaveBeenCalledTimes(1);
-
-      expect(
-        (lwaSdkMock.authorize as jasmine.Spy).calls.mostRecent().args[0]
-      ).toEqual({
+      expect(authorizeSpy).toHaveBeenCalledTimes(1);
+      expect(authorizeSpy.calls.mostRecent().args[0]).toEqual({
         scope: ['postal_code', 'profile', 'profile:user_id'],
       } as AuthorizeOptions);
       const options: AuthorizeOptions = {
@@ -50,10 +54,8 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
       };
       component.options = options;
       component.handleOnClick();
-      expect(lwaSdkMock.authorize).toHaveBeenCalledTimes(2);
-      expect(
-        (lwaSdkMock.authorize as jasmine.Spy).calls.mostRecent().args[0]
-      ).toBe(options);
+      expect(authorizeSpy).toHaveBeenCalledTimes(2);
+      expect(authorizeSpy.calls.mostRecent().args[0]).toBe(options);
     });
   });
 
@@ -61,13 +63,21 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
     const src = 'https://via.placeholder.com/50';
     @Component({
       template: `
-        <lwa-button [width]="width" [height]="height" [src]="src"> </lwa-button>
+        <lwa-button
+          [width]="width"
+          [height]="height"
+          [src]="src"
+          (authorize)="spy($event)"
+          [nextUrl]="nextUrl"
+        ></lwa-button>
       `,
     })
     class TestHostComponent {
       width = 50;
       height = 50;
       src = src;
+      nextUrl = '';
+      spy = jasmine.createSpy();
     }
 
     let component: TestHostComponent;
@@ -77,6 +87,7 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
       TestBed.configureTestingModule({
         declarations: [NgxLoginWithAmazonButtonComponent, TestHostComponent],
       }).compileComponents();
+      (lwaSdkMock.authorize as jasmine.Spy).calls.reset();
     }));
 
     beforeEach(() => {
@@ -85,16 +96,8 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
       fixture.detectChanges();
     });
 
-    it('has an <a> element with a `LoginWithAmazon` id', () => {
-      expect((fixture.nativeElement as HTMLElement).querySelector('a').id).toBe(
-        'LoginWithAmazon'
-      );
-    });
-
     it('accepts width and height inputs', () => {
-      const button = (fixture.nativeElement as HTMLElement)
-        .querySelector('a')
-        .querySelector('img');
+      const button = queryAmazonButtonImage(fixture.nativeElement);
       expect(button.width).toBe(50);
       expect(button.height).toBe(50);
       component.height = 100;
@@ -105,14 +108,30 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
     });
 
     it('accepts image src input', () => {
-      const button = (fixture.nativeElement as HTMLElement)
-        .querySelector('a')
-        .querySelector('img');
+      const button = queryAmazonButtonImage(fixture.nativeElement);
       expect(button.src).toEqual(src);
       const newSrc = 'https://via.placeholder.com/149';
       button.src = newSrc;
       fixture.detectChanges();
       expect(button.src).toEqual(newSrc);
+    });
+
+    describe('authorize output', () => {
+      it('doesn\'t emit if nextUrl input is provided', () => {
+        component.nextUrl = 'foo';
+        fixture.detectChanges();
+        expect(component.spy).not.toHaveBeenCalled();
+        queryAmazonButton(fixture.nativeElement).click();
+        fixture.detectChanges();
+        expect(component.spy).toHaveBeenCalledTimes(0);
+      });
+
+      it('emits authorize event after successful authorization', () => {
+        expect(component.spy).not.toHaveBeenCalled();
+        queryAmazonButton(fixture.nativeElement).click();
+        fixture.detectChanges();
+        expect(component.spy).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });
