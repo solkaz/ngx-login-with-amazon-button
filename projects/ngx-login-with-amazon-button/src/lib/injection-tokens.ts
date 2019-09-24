@@ -1,6 +1,7 @@
 import { InjectionToken } from '@angular/core';
+import { LwaSdkNamespaceType } from './types';
 
-const LWA_SDK_OBJECT = new InjectionToken<typeof amazon.Login>(
+const LWA_SDK_OBJECT = new InjectionToken<LwaSdkNamespaceType>(
   'lwa.sdk.object'
 );
 const LWA_CLIENT_ID = new InjectionToken<string>('lwa.client.id');
