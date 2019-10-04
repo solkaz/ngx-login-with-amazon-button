@@ -57,9 +57,35 @@ import {
 export class AppModule {}
 ```
 
+TODO:
+
+```
+
+<lwa-button
+ src="https://your-button-source"
+ (authorize)="handleAuthorize($event)">
+</lwa-button>
+```
+
+## API
+
+TODO
+
 ## Testing
 
 TODO
+
+- Have to provide mock values for `LWA_CLIENT_ID` and `LWA_SDK_OBJECT`
+- Show how to create simple mock for `LWA_SDK_OBJECT`
+
+```ts
+jasmine.createSpyObj("sdk", [
+  // `authorize` and `setClientId` are required for the button to fully function.
+  "authorize",
+  "setClientId",
+  // Define other methods as needed (`getClientId`, `retrieveUserProfile`, etc.)
+]);
+```
 
 ## License
 
