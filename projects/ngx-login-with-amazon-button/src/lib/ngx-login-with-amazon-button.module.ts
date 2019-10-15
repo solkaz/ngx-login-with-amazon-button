@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { NgxLoginWithAmazonButtonComponent } from './ngx-login-with-amazon-button.component';
 import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.service';
+import { LWA_CLIENT_ID } from './injection-tokens';
 
 @NgModule({
   declarations: [NgxLoginWithAmazonButtonComponent],
@@ -8,4 +9,18 @@ import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.
   exports: [NgxLoginWithAmazonButtonComponent],
   providers: [NgxLoginWithAmazonButtonService],
 })
-export class NgxLoginWithAmazonButtonModule {}
+export class NgxLoginWithAmazonButtonModule {
+  static forRoot(clientId: string): ModuleWithProviders {
+    if (!clientId) {
+      throw new Error('clientId was not provided');
+    }
+
+    return {
+      ngModule: NgxLoginWithAmazonButtonModule,
+      providers: [
+        { provide: LWA_CLIENT_ID, useValue: clientId },
+        NgxLoginWithAmazonButtonService,
+      ],
+    };
+  }
+}

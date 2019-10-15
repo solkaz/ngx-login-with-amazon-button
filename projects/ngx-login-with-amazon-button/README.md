@@ -41,12 +41,8 @@ import {
 
 @NgModule({
   // ...
-  imports: [NgxLoginWithAmazonButtonModule],
+  imports: [NgxLoginWithAmazonButtonModule.forRoot("YOUR_CLIENT_ID")],
   providers: [
-    {
-      provide: LWA_CLIENT_ID,
-      useValue: "myClientId",
-    },
     {
       provide: LWA_SDK_OBJECT,
       useValue: amazon.Login,
