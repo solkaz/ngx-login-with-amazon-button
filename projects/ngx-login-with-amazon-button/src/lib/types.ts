@@ -14,10 +14,25 @@ export type LwaSdkNamespaceType = typeof amazon.Login;
 export abstract class AbstractLwaSdk implements LwaSdkNamespaceType {
   abstract setClientId(clientId: string);
   abstract getClientId(): string;
-  abstract authorize(options, next);
-  abstract setSandboxMode();
-  abstract setSiteDomain();
-  abstract setUseCookie();
-  abstract retrieveProfile();
+  abstract authorize(
+    options: AccessTokenAuthorizeOptions,
+    next?: string | NextCallback<AccessTokenRequest>
+  ): AccessTokenRequest;
+  abstract authorize(
+    options: CodeAuthorizeOptions,
+    next?: string | NextCallback<CodeRequest>
+  ): CodeRequest;
+  abstract authorize(
+    options: AuthorizeOptions,
+    next?: string | NextCallback<AuthorizeRequest>
+  ): AuthorizeRequest;
+  abstract setSandboxMode(sandboxMode: boolean): void;
+  abstract setSiteDomain(siteDomain: string): void;
+  abstract setUseCookie(useCookie: boolean): void;
+  abstract retrieveProfile(callback: RetrieveProfileCallback): void;
+  abstract retrieveProfile(
+    accessToken: string,
+    callback?: RetrieveProfileCallback
+  ): void;
   abstract logout(): void;
 }
