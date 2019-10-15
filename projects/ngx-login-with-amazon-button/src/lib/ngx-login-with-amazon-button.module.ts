@@ -7,7 +7,6 @@ import { LWA_CLIENT_ID } from './injection-tokens';
   declarations: [NgxLoginWithAmazonButtonComponent],
   imports: [],
   exports: [NgxLoginWithAmazonButtonComponent],
-  providers: [NgxLoginWithAmazonButtonService],
 })
 export class NgxLoginWithAmazonButtonModule {
   static forRoot(clientId: string): ModuleWithProviders {
