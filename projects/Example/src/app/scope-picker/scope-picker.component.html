@@ -1,1 +1,61 @@
-<p>scope-picker works!</p>
+<div>
+  Profile:
+  <input
+    type="checkbox"
+    name="scope-profile"
+    id="scope-profile"
+    [checked]="isValueChecked('profile')"
+    (change)="onScopeChange('profile')"
+  />
+
+  <ng-container *ngIf="isValueChecked('profile')">
+    Essential?
+    <input
+      type="checkbox"
+      name="scope-profile-essential"
+      id="scope-profile-essential"
+      [checked]="isEssentialValueChecked('profile')"
+      (change)="onScopeRequirementChange('profile')"
+    />
+  </ng-container>
+  <br />
+
+  Postal Code:
+  <input
+    type="checkbox"
+    name="scope-postal-code"
+    id="scope-postal-code"
+    [checked]="isValueChecked('postal_code')"
+    (change)="onScopeChange('postal_code')"
+  />
+  <ng-container *ngIf="isValueChecked('postal_code')">
+    Essential?
+    <input
+      type="checkbox"
+      name="scope-postal-code-essential"
+      id="scope-postal-code-essential"
+      [checked]="isEssentialValueChecked('postal_code')"
+      (change)="onScopeRequirementChange('postal_code')"
+    />
+  </ng-container>
+  <br />
+
+  User ID:
+  <input
+    type="checkbox"
+    name="scope-profile:user_id"
+    id="scope-profile:user_id"
+    [checked]="isValueChecked('profile:user_id')"
+    (change)="onScopeChange('profile:user_id')"
+  />
+  <ng-container *ngIf="isValueChecked('profile:user_id')">
+    Essential?
+    <input
+      type="checkbox"
+      name="scope-profile:user_id-essential"
+      id="scope-profile:user_id-essential"
+      [checked]="isEssentialValueChecked('profile:user_id')"
+      (change)="onScopeRequirementChange('profile:user_id')"
+    />
+  </ng-container>
+</div>

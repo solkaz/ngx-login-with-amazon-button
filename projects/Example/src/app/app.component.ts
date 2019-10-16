@@ -8,7 +8,17 @@ import { NgxLoginWithAmazonButtonService } from 'ngx-login-with-amazon-button';
 })
 export class AppComponent {
   profile?: UserProfile;
+  options: AuthorizeOptions = {
+    scope: ['profile', 'profile:user_id', 'postal_code'],
+    scope_data: {
+      profile: { essential: false },
+      postal_code: { essential: false },
+      'profile:user_id': { essential: false },
+    },
+  } as any;
+
   constructor(private lwaSdk: NgxLoginWithAmazonButtonService) {}
+
   onAuthorize = (response: AccessTokenRequest) => {
     this.lwaSdk.lwaSdk.retrieveProfile(response.access_token, (res) => {
       if (res.success === false) {
@@ -16,6 +26,11 @@ export class AppComponent {
       }
       this.profile = res.profile;
     });
+  }
+
+  onOptionsChange(e: any) {
+    console.log(e);
+    this.options = e;
   }
 
   logout = () => {

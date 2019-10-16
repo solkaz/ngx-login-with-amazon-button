@@ -48,7 +48,12 @@ export class NgxLoginWithAmazonButtonComponent {
    */
   @Input() options: AuthorizeOptions = {
     scope: ['postal_code', 'profile', 'profile:user_id'],
-  };
+    scope_data: {
+      profile: { essential: false },
+      postal_code: { essential: false },
+      'profile:user_id': { essential: false },
+    },
+  } as any;
 
   /**
    * Emits when `amazon.Login.authorize` is successful.
