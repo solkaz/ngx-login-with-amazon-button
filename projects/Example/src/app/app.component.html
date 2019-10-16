@@ -4,4 +4,11 @@
     (authorize)="onAuthorize($event)"
   >
   </lwa-button>
+
+  <div *ngIf="profile">
+    {{ profile.Name }}
+
+    <br />
+    <button (click)="logout()">Logout</button>
+  </div>
 </div>
