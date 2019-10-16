@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgxLoginWithAmazonButtonModule } from 'ngx-login-with-amazon-button';
 import { AppComponent } from './app.component';
 import { ProfileDisplayComponent } from './profile-display/profile-display.component';
+import { ScopePickerComponent } from './scope-picker/scope-picker.component';
 
 @NgModule({
-  declarations: [AppComponent, ProfileDisplayComponent],
+  declarations: [AppComponent, ProfileDisplayComponent, ScopePickerComponent],
   imports: [
     BrowserModule,
     NgxLoginWithAmazonButtonModule.forRoot(
