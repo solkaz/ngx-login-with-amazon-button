@@ -5,10 +5,8 @@
   >
   </lwa-button>
 
-  <div *ngIf="profile">
-    {{ profile.Name }}
-
-    <br />
-    <button (click)="logout()">Logout</button>
-  </div>
+  <app-profile-display
+    [profile]="profile"
+    (logout)="logout()"
+  ></app-profile-display>
 </div>

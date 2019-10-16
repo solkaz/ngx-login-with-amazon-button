@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxLoginWithAmazonButtonModule } from 'ngx-login-with-amazon-button';
 import { AppComponent } from './app.component';
+import { ProfileDisplayComponent } from './profile-display/profile-display.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProfileDisplayComponent],
   imports: [
     BrowserModule,
     NgxLoginWithAmazonButtonModule.forRoot(

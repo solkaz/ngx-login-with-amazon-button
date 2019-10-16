@@ -1,0 +1,9 @@
+<div *ngIf="profile">
+  <div *ngIf="profile?.Name">Name: {{ profile.Name }}</div>
+  <div *ngIf="profile?.PostalCode">Postal Code: {{ profile.PostalCode }}</div>
+  <div *ngIf="profile?.PrimaryEmail">Email: {{ profile.PrimaryEmail }}</div>
+  <div *ngIf="profile?.CustomerId">Customer ID: {{ profile.CustomerId }}</div>
+
+  <br />
+  <button (click)="logout.emit()">Logout</button>
+</div>
