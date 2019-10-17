@@ -31,7 +31,10 @@ export class ScopePickerComponent {
   }
 
   isEssentialValueChecked = (scope: AuthorizationScopeOptions) => {
-    return Boolean((this.options as any).scope_data[scope].essential);
+    return Boolean(
+      this.isValueChecked(scope) &&
+        (this.options as any).scope_data[scope].essential
+    );
   }
 
   onScopeRequirementChange = (scope: AuthorizationScopeOptions) => {

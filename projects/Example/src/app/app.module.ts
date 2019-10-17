@@ -4,9 +4,10 @@ import { NgxLoginWithAmazonButtonModule } from 'ngx-login-with-amazon-button';
 import { AppComponent } from './app.component';
 import { ProfileDisplayComponent } from './profile-display/profile-display.component';
 import { ScopePickerComponent } from './scope-picker/scope-picker.component';
+import { ScopePickerFieldComponent } from './scope-picker-field/scope-picker-field.component';
 
 @NgModule({
-  declarations: [AppComponent, ProfileDisplayComponent, ScopePickerComponent],
+  declarations: [AppComponent, ProfileDisplayComponent, ScopePickerComponent, ScopePickerFieldComponent],
   imports: [
     BrowserModule,
     NgxLoginWithAmazonButtonModule.forRoot(

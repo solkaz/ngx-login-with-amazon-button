@@ -28,9 +28,8 @@ export class AppComponent {
     });
   }
 
-  onOptionsChange(e: any) {
-    console.log(e);
-    this.options = e;
+  onOptionsChange(options: any) {
+    this.options = options;
   }
 
   logout = () => {

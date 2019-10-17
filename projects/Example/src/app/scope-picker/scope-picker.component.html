@@ -1,24 +1,12 @@
 <div>
-  Profile:
-  <input
-    type="checkbox"
-    name="scope-profile"
-    id="scope-profile"
-    [checked]="isValueChecked('profile')"
-    (change)="onScopeChange('profile')"
-  />
-
-  <ng-container *ngIf="isValueChecked('profile')">
-    Essential?
-    <input
-      type="checkbox"
-      name="scope-profile-essential"
-      id="scope-profile-essential"
-      [checked]="isEssentialValueChecked('profile')"
-      (change)="onScopeRequirementChange('profile')"
-    />
-  </ng-container>
-  <br />
+  <app-scope-picker-field
+    title="Profile"
+    scope="profile"
+    [scopeEnabled]="isValueChecked('profile')"
+    [isRequired]="isEssentialValueChecked('profile')"
+    (scopeChange)="onScopeChange('profile')"
+    (scopeRequirementChange)="onScopeRequirementChange('profile')"
+  ></app-scope-picker-field>
 
   Postal Code:
   <input

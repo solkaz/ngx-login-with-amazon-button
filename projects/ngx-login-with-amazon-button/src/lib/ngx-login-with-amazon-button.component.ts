@@ -71,6 +71,14 @@ export class NgxLoginWithAmazonButtonComponent {
   }
 
   handleOnAuthorize = (event: AuthorizeRequest) => {
-    this.authorize.emit(event);
+    // This method will be called if the user declines to grant permission,
+    // so check that an error didn't occur.
+    if (event.error === undefined) {
+      this.authorize.emit(event);
+    } else {
+      console.error(
+        `Error occurred: ${event.error} - ${event.error_description}`
+      );
+    }
   }
 }
