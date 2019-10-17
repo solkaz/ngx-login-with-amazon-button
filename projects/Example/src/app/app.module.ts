@@ -5,14 +5,18 @@ import { AppComponent } from './app.component';
 import { ProfileDisplayComponent } from './profile-display/profile-display.component';
 import { ScopePickerComponent } from './scope-picker/scope-picker.component';
 import { ScopePickerFieldComponent } from './scope-picker-field/scope-picker-field.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
-  declarations: [AppComponent, ProfileDisplayComponent, ScopePickerComponent, ScopePickerFieldComponent],
+  declarations: [
+    AppComponent,
+    ProfileDisplayComponent,
+    ScopePickerComponent,
+    ScopePickerFieldComponent,
+  ],
   imports: [
     BrowserModule,
-    NgxLoginWithAmazonButtonModule.forRoot(
-      'amzn1.application-oa2-client.5241d59b9958451caa24b09208b43d3e'
-    ),
+    NgxLoginWithAmazonButtonModule.forRoot(environment.clientId),
   ],
   bootstrap: [AppComponent],
 })
