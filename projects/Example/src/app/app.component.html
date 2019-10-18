@@ -15,7 +15,7 @@
     </lwa-button>
     <app-scope-picker
       [options]="options"
-      (optionChange)="onOptionsChange($event)"
+      (optionChange)="this.options = $event"
     ></app-scope-picker>
   </ng-template>
 </div>

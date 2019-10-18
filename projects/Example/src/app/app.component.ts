@@ -1,6 +1,15 @@
 import { Component } from '@angular/core';
 import { NgxLoginWithAmazonButtonService } from 'ngx-login-with-amazon-button';
 
+const defaultOptions: AuthorizeOptions = {
+  scope: ['profile', 'profile:user_id', 'postal_code'],
+  scope_data: {
+    postal_code: { essential: false },
+    profile: { essential: false },
+    'profile:user_id': { essential: false },
+  },
+} as any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,18 +17,12 @@ import { NgxLoginWithAmazonButtonService } from 'ngx-login-with-amazon-button';
 })
 export class AppComponent {
   profile?: UserProfile;
-  options: AuthorizeOptions = {
-    scope: ['profile', 'profile:user_id', 'postal_code'],
-    scope_data: {
-      profile: { essential: false },
-      postal_code: { essential: false },
-      'profile:user_id': { essential: false },
-    },
-  } as any;
+  options: AuthorizeOptions = defaultOptions;
 
   constructor(private lwaSdk: NgxLoginWithAmazonButtonService) {}
 
   onAuthorize = (response: AccessTokenRequest) => {
+    // TODO Validate access token
     this.lwaSdk.lwaSdk.retrieveProfile(response.access_token, (res) => {
       if (res.success === false) {
         throw new Error('Couldn\'t retrieve profile: ' + res.error);
@@ -28,12 +31,9 @@ export class AppComponent {
     });
   }
 
-  onOptionsChange(options: any) {
-    this.options = options;
-  }
-
   logout = () => {
     this.lwaSdk.lwaSdk.logout();
     this.profile = undefined;
+    this.options = defaultOptions;
   }
 }
