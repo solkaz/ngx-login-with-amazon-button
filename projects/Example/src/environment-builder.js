@@ -1,16 +1,13 @@
-const writeFileSync = require("fs").writeFileSync;
+const fs = require("fs");
 
-// Script should build a JSON file that the environment files will import from
+const valuesFilePath = `${__dirname}/environments/values.json`;
 
-// Gets clientId from environment.
-
-writeFileSync(
-  __dirname + `/environments/values.json`,
-  JSON.stringify(
-    {
-      clientId: process.env.CLIENT_ID,
-    },
-    null,
-    2
-  )
+const data = JSON.stringify(
+  {
+    clientId: process.env.CLIENT_ID,
+  },
+  null,
+  2
 );
+
+fs.writeFileSync(valuesFilePath, data);
