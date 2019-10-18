@@ -14,6 +14,9 @@ function queryAmazonButtonImage(el: HTMLElement) {
 }
 
 describe('NgxLoginWithAmazonButtonComponent', () => {
+  beforeEach(() => {
+    (lwaSdkMock.authorize as jasmine.Spy).calls.reset();
+  });
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: mockLwaSdkProviders.concat([NgxLoginWithAmazonButtonService]),
@@ -48,6 +51,7 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
       expect(authorizeSpy).toHaveBeenCalledTimes(1);
       expect(authorizeSpy.calls.mostRecent().args[0]).toEqual({
         scope: ['postal_code', 'profile', 'profile:user_id'],
+        scope_data: jasmine.anything(),
       } as AuthorizeOptions);
       const options: AuthorizeOptions = {
         scope: ['profile:user_id'],
@@ -87,7 +91,6 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
       TestBed.configureTestingModule({
         declarations: [NgxLoginWithAmazonButtonComponent, TestHostComponent],
       }).compileComponents();
-      (lwaSdkMock.authorize as jasmine.Spy).calls.reset();
     }));
 
     beforeEach(() => {

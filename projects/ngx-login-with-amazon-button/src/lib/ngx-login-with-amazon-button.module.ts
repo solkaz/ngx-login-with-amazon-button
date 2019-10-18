@@ -10,16 +10,9 @@ import { LWA_CLIENT_ID } from './injection-tokens';
 })
 export class NgxLoginWithAmazonButtonModule {
   static forRoot(clientId: string): ModuleWithProviders {
-    if (!clientId) {
-      throw new Error('clientId was not provided');
-    }
-
     return {
       ngModule: NgxLoginWithAmazonButtonModule,
-      providers: [
-        { provide: LWA_CLIENT_ID, useValue: clientId },
-        NgxLoginWithAmazonButtonService,
-      ],
+      providers: [{ provide: LWA_CLIENT_ID, useValue: clientId }],
     };
   }
 }
