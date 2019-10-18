@@ -11,20 +11,12 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "resolveJsonModule": true,
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"],
     "paths": {
-      "ngx-login-with-amazon-button": [
-        "dist/ngx-login-with-amazon-button"
-      ],
-      "ngx-login-with-amazon-button/*": [
-        "dist/ngx-login-with-amazon-button/*"
-      ]
+      "ngx-login-with-amazon-button": ["dist/ngx-login-with-amazon-button"],
+      "ngx-login-with-amazon-button/*": ["dist/ngx-login-with-amazon-button/*"]
     }
   },
   "angularCompilerOptions": {
