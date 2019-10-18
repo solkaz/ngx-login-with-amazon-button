@@ -15,8 +15,8 @@ import {
 export class ScopePickerFieldComponent {
   @Input() title: string;
   @Input() scope: AuthorizationScopeOptions;
-  @Input() scopeEnabled: boolean;
-  @Input() isRequired: boolean;
-  @Output() scopeChange = new EventEmitter<boolean>();
+  @Input() scopeRequested: boolean;
+  @Input() scopeRequired: boolean;
+  @Output() scopeRequestChange = new EventEmitter<boolean>();
   @Output() scopeRequirementChange = new EventEmitter<boolean>();
 }

@@ -9,42 +9,45 @@ export class ScopePickerComponent {
   @Input() options: AuthorizeOptions;
   @Output() optionChange = new EventEmitter<AuthorizeOptions>();
 
-  isValueChecked = (scope: AuthorizationScopeOptions) => {
+  isScopeRequested = (scope: AuthorizationScopeOptions) => {
     return this.options.scope.includes(scope);
   }
 
-  onScopeChange = (scope: AuthorizationScopeOptions) => {
+  onScopeChange = (
+    scope: AuthorizationScopeOptions,
+    isScopeRequested: boolean
+  ) => {
     const previousScope = this.options.scope as Array<
       AuthorizationScopeOptions
     >;
-    const wasValueChecked = this.isValueChecked(scope);
     this.optionChange.emit({
       ...this.options,
-      scope: wasValueChecked
-        ? previousScope.filter((x) => x !== scope)
-        : previousScope.concat(scope),
+      scope: isScopeRequested
+        ? previousScope.concat(scope)
+        : previousScope.filter((x) => x !== scope),
       scope_data: {
         ...(this.options as any).scope_data,
-        [scope]: wasValueChecked ? undefined : { essential: false },
+        [scope]: isScopeRequested ? { essential: false } : undefined,
       },
     } as any);
   }
 
-  isEssentialValueChecked = (scope: AuthorizationScopeOptions) => {
+  isScopeRequirementChecked = (scope: AuthorizationScopeOptions) => {
     return Boolean(
-      this.isValueChecked(scope) &&
+      this.isScopeRequested(scope) &&
         (this.options as any).scope_data[scope].essential
     );
   }
 
-  onScopeRequirementChange = (scope: AuthorizationScopeOptions) => {
+  onScopeRequirementChange = (
+    scope: AuthorizationScopeOptions,
+    essential: boolean
+  ) => {
     this.optionChange.emit({
       ...this.options,
       scope_data: {
         ...(this.options as any).scope_data,
-        [scope]: {
-          essential: !this.isEssentialValueChecked(scope),
-        },
+        [scope]: { essential },
       },
     } as any);
   }

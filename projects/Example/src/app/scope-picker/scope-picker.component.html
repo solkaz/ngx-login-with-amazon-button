@@ -1,49 +1,32 @@
 <div>
+  <ng-container></ng-container>
+
   <app-scope-picker-field
     title="Profile"
     scope="profile"
-    [scopeEnabled]="isValueChecked('profile')"
-    [isRequired]="isEssentialValueChecked('profile')"
-    (scopeChange)="onScopeChange('profile')"
-    (scopeRequirementChange)="onScopeRequirementChange('profile')"
+    [scopeRequested]="isScopeRequested('profile')"
+    [scopeRequired]="isScopeRequirementChecked('profile')"
+    (scopeRequestChange)="onScopeChange('profile', $event)"
+    (scopeRequirementChange)="onScopeRequirementChange('profile', $event)"
   ></app-scope-picker-field>
 
-  Postal Code:
-  <input
-    type="checkbox"
-    name="scope-postal-code"
-    id="scope-postal-code"
-    [checked]="isValueChecked('postal_code')"
-    (change)="onScopeChange('postal_code')"
-  />
-  <ng-container *ngIf="isValueChecked('postal_code')">
-    Essential?
-    <input
-      type="checkbox"
-      name="scope-postal-code-essential"
-      id="scope-postal-code-essential"
-      [checked]="isEssentialValueChecked('postal_code')"
-      (change)="onScopeRequirementChange('postal_code')"
-    />
-  </ng-container>
-  <br />
+  <app-scope-picker-field
+    title="Postal Code"
+    scope="postal_code"
+    [scopeRequested]="isScopeRequested('postal_code')"
+    [scopeRequired]="isScopeRequirementChecked('postal_code')"
+    (scopeRequestChange)="onScopeChange('postal_code', $event)"
+    (scopeRequirementChange)="onScopeRequirementChange('postal_code', $event)"
+  ></app-scope-picker-field>
 
-  User ID:
-  <input
-    type="checkbox"
-    name="scope-profile:user_id"
-    id="scope-profile:user_id"
-    [checked]="isValueChecked('profile:user_id')"
-    (change)="onScopeChange('profile:user_id')"
-  />
-  <ng-container *ngIf="isValueChecked('profile:user_id')">
-    Essential?
-    <input
-      type="checkbox"
-      name="scope-profile:user_id-essential"
-      id="scope-profile:user_id-essential"
-      [checked]="isEssentialValueChecked('profile:user_id')"
-      (change)="onScopeRequirementChange('profile:user_id')"
-    />
-  </ng-container>
+  <app-scope-picker-field
+    title="User ID"
+    scope="profile:user_id"
+    [scopeRequested]="isScopeRequested('profile:user_id')"
+    [scopeRequired]="isScopeRequirementChecked('profile:user_id')"
+    (scopeRequestChange)="onScopeChange('profile:user_id', $event)"
+    (scopeRequirementChange)="
+      onScopeRequirementChange('profile:user_id', $event)
+    "
+  ></app-scope-picker-field>
 </div>

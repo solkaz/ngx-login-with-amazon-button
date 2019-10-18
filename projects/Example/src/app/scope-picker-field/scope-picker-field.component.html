@@ -3,18 +3,18 @@
   type="checkbox"
   name="scope-{{ scope }}"
   id="scope-{{ scope }}"
-  [checked]="scopeEnabled"
-  (change)="scopeChange.emit(!scopeEnabled)"
+  [checked]="scopeRequested"
+  (change)="scopeRequestChange.emit(!scopeRequested)"
 />
 
-<ng-container *ngIf="scopeEnabled">
+<ng-container *ngIf="scopeRequested">
   Essential?
   <input
     type="checkbox"
     name="scope-{{ scope }}-essential"
     id="scope-{{ scope }}-essential"
-    [checked]="isRequired"
-    (change)="scopeRequirementChange.emit(!isRequired)"
+    [checked]="scopeRequired"
+    (change)="scopeRequirementChange.emit(!scopeRequired)"
   />
 </ng-container>
 <br />
