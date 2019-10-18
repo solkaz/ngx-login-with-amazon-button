@@ -56,9 +56,7 @@
               "projects/Example/src/favicon.ico",
               "projects/Example/src/assets"
             ],
-            "styles": [
-              "projects/Example/src/styles.css"
-            ],
+            "styles": ["projects/Example/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -110,34 +108,14 @@
             "browserTarget": "Example:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/Example/src/test.ts",
-            "polyfills": "projects/Example/src/polyfills.ts",
-            "tsConfig": "projects/Example/tsconfig.spec.json",
-            "karmaConfig": "projects/Example/karma.conf.js",
-            "assets": [
-              "projects/Example/src/favicon.ico",
-              "projects/Example/src/assets"
-            ],
-            "styles": [
-              "projects/Example/src/styles.css"
-            ],
-            "scripts": []
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
               "projects/Example/tsconfig.app.json",
-              "projects/Example/tsconfig.spec.json",
               "projects/Example/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
