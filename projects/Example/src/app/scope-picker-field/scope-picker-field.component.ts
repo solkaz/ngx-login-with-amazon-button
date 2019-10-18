@@ -18,5 +18,5 @@ export class ScopePickerFieldComponent {
   @Input() scopeRequested: boolean;
   @Input() scopeRequired: boolean;
   @Output() scopeRequestChange = new EventEmitter<boolean>();
-  @Output() scopeRequirementChange = new EventEmitter<boolean>();
+  @Output() scopeRequiredChange = new EventEmitter<boolean>();
 }
