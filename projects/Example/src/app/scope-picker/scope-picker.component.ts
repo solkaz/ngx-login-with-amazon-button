@@ -25,7 +25,7 @@ export class ScopePickerComponent {
   }
 
   get scopeData() {
-    return (this.options as any).scope_data;
+    return this.options.scope_data;
   }
 
   onScopeChange = (
@@ -42,7 +42,7 @@ export class ScopePickerComponent {
         ...this.scopeData,
         [scope]: isScopeRequested ? { essential: false } : undefined,
       },
-    } as any);
+    });
   }
 
   isScopeRequired = (scope: AuthorizationScopeOptions) => {
@@ -61,6 +61,6 @@ export class ScopePickerComponent {
         ...this.scopeData,
         [scope]: { essential },
       },
-    } as any);
+    });
   }
 }

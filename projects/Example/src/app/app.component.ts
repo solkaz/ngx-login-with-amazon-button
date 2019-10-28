@@ -8,7 +8,7 @@ const defaultOptions: AuthorizeOptions = {
     profile: { essential: false },
     'profile:user_id': { essential: false },
   },
-} as any;
+};
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,7 @@ export class AppComponent {
     // TODO Validate access token
     this.lwaSdk.lwaSdk.retrieveProfile(response.access_token, (res) => {
       if (res.success === false) {
-        throw new Error('Couldn\'t retrieve profile: ' + res.error);
+        throw new Error(`Couldn\'t retrieve profile: ${res.error}`);
       }
       this.profile = res.profile;
     });

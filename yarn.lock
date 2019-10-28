@@ -939,9 +939,9 @@
     "@types/jasmine" "*"
 
 "@types/login-with-amazon-sdk-browser@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@types/login-with-amazon-sdk-browser/-/login-with-amazon-sdk-browser-1.0.0.tgz#f0bb25ed90023401eebfa1b396c8f6c119f3d765"
-  integrity sha512-sz2CrMxLRMHzTdvStR7HQy04pjaPYZlbZtdYLnzE13wz8tJqGP+VxmCdF951KL3CdJEjUyGvYiIgZuQam1+w3A==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/login-with-amazon-sdk-browser/-/login-with-amazon-sdk-browser-1.0.1.tgz#70c370a6cfce21d90f73418c34f313cda04f53aa"
+  integrity sha512-kyynDtxfgpl4QrPTwnDtrTyVZpQq6OjlHzwgl97u/uwR/1wr+/zPsoWkIEM1qGrXnNbctowo+Klo36epU2NHlg==
 
 "@types/minimatch@*":
   version "3.0.3"

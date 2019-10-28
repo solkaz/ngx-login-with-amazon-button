@@ -52,7 +52,7 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
       expect(authorizeSpy.calls.mostRecent().args[0]).toEqual({
         scope: ['postal_code', 'profile', 'profile:user_id'],
         scope_data: jasmine.anything(),
-      } as AuthorizeOptions);
+      });
       const options: AuthorizeOptions = {
         scope: ['profile:user_id'],
       };

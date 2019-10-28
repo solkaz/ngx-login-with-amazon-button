@@ -53,7 +53,7 @@ export class NgxLoginWithAmazonButtonComponent {
       postal_code: { essential: false },
       'profile:user_id': { essential: false },
     },
-  } as any;
+  };
 
   /**
    * Emits when `amazon.Login.authorize` is successful.
