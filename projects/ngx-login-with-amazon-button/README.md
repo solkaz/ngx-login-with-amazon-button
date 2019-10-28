@@ -24,42 +24,33 @@ Refer to the [Login with Amazon documentation](https://developer.amazon.com/docs
 
 ### Usage
 
-Include the `NgxLoginWithAmazonButtonModule` in the `imports` when declaring an Angular module, as well as providing the following values:
+You will need a client ID from the Amazon Developer Console. If you don't already have an application registered, please follow [the documentation from Amazon](https://developer.amazon.com/docs/login-with-amazon/register-web.html).
 
-- `LWA_CLIENT_ID` - Client ID for your application. This must be provided.
-- `LWA_SDK_OBJECT` - Object that has the Login with Amazon SDK methods.
+Include the `NgxLoginWithAmazonButtonModule` in the `imports` when declaring an Angular module by calling the static `forRoot` method with your `clientId` for the application.
 
 Example:
 
 ```ts
 import { NgModule } from "@angular/core";
-import {
-  LWA_CLIENT_ID,
-  LWA_SDK_OBJECT,
-  NgxLoginWithAmazonButtonModule,
-} from "ngx-login-with-amazon-button";
+import { NgxLoginWithAmazonButtonModule } from "ngx-login-with-amazon-button";
 
 @NgModule({
   // ...
   imports: [NgxLoginWithAmazonButtonModule.forRoot("YOUR_CLIENT_ID")],
-  providers: [
-    {
-      provide: LWA_SDK_OBJECT,
-      useValue: amazon.Login,
-    },
-  ],
   // ...
 })
 export class AppModule {}
 ```
 
-TODO:
+You can then include the `lwa-button` element in your HTML templates. It exposes the `authorize` event that will occur after successfully authorizing the user, and will respond with a `AccessTokenRequest` or `CodeRequest`
 
-```
+Example:
 
+```html
 <lwa-button
- src="https://your-button-source"
- (authorize)="handleAuthorize($event)">
+  src="https://your-button-source"
+  (authorize)="handleAuthorize($event)"
+>
 </lwa-button>
 ```
 
