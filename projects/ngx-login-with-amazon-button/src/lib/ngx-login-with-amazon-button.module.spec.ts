@@ -7,20 +7,6 @@ import { NgxLoginWithAmazonButtonModule } from './ngx-login-with-amazon-button.m
 import { lwaSdkMock } from './test-injection-tokens';
 
 describe('NgxLoginWithAmazonButtonModule', () => {
-  xit('requires clientId argument in forRoot property', () => {
-    try {
-      TestBed.configureTestingModule({
-        imports: [NgxLoginWithAmazonButtonModule.forRoot('')],
-      });
-    } catch (e) {
-      expect(e.message).toEqual('clientId was not provided');
-      return;
-    }
-    fail(
-      'NgxLoginWithAmazonButtonModule.forRoot did not throw when clientId was not provided'
-    );
-  });
-
   it('resolves LWA_CLIENT_ID InjectionToken', () => {
     TestBed.configureTestingModule({
       imports: [NgxLoginWithAmazonButtonModule.forRoot('testId')],
