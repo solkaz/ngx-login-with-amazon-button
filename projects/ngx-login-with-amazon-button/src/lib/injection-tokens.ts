@@ -13,7 +13,8 @@ const LWA_SDK_OBJECT = new InjectionToken<LwaSdkNamespaceType>(
 );
 
 /**
- * `InjectionToken` for the clientId.
+ * `InjectionToken` for the application's client ID (required
+ * by Login with Amazon SDK).
  */
 const LWA_CLIENT_ID = new InjectionToken<string>('lwa.client.id');
 

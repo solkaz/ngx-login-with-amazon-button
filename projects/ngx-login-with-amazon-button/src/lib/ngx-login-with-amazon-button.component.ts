@@ -69,7 +69,7 @@ export class NgxLoginWithAmazonButtonComponent {
    * @ignore
    */
   handleOnClick = () => {
-    this.lwa.lwaSdk.authorize(
+    this.lwa.sdk.authorize(
       this.options,
       this.nextUrl || this.handleOnAuthorize
     );

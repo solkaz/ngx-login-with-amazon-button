@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.service';
-import { mockLwaSdkProviders, lwaSdkMock } from './test-injection-tokens';
+import { mockLwaSdkProviders, sdkMock } from './test-injection-tokens';
 
 describe('NgxLoginWithAmazonButtonService', () => {
   describe('with TestBed', () => {
@@ -22,7 +22,7 @@ describe('NgxLoginWithAmazonButtonService', () => {
       const service: NgxLoginWithAmazonButtonService = TestBed.get(
         NgxLoginWithAmazonButtonService
       );
-      expect(service.lwaSdk).toEqual(lwaSdkMock);
+      expect(service.sdk).toEqual(sdkMock);
     });
   });
 

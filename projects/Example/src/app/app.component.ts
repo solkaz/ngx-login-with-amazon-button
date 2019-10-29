@@ -19,11 +19,11 @@ export class AppComponent {
   profile?: UserProfile;
   options: AuthorizeOptions = defaultOptions;
 
-  constructor(private lwaSdk: NgxLoginWithAmazonButtonService) {}
+  constructor(private lwa: NgxLoginWithAmazonButtonService) {}
 
   onAuthorize = (response: AccessTokenRequest) => {
     // TODO Validate access token
-    this.lwaSdk.lwaSdk.retrieveProfile(response.access_token, (res) => {
+    this.lwa.sdk.retrieveProfile(response.access_token, (res) => {
       if (res.success === false) {
         throw new Error(`Couldn\'t retrieve profile: ${res.error}`);
       }
@@ -32,7 +32,7 @@ export class AppComponent {
   }
 
   logout = () => {
-    this.lwaSdk.lwaSdk.logout();
+    this.lwa.sdk.logout();
     this.profile = undefined;
     this.options = defaultOptions;
   }

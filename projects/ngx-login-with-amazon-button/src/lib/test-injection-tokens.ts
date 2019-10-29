@@ -2,12 +2,12 @@ import { Provider } from '@angular/core';
 import { LWA_CLIENT_ID, LWA_SDK_OBJECT } from './injection-tokens';
 import { LwaSdkNamespaceType } from './types';
 
-const lwaSdkMock = jasmine.createSpyObj<LwaSdkNamespaceType>('lwaSdk', [
+const sdkMock = jasmine.createSpyObj<LwaSdkNamespaceType>('sdk', [
   'authorize',
   'setClientId',
 ]);
 
-(lwaSdkMock.authorize as jasmine.Spy).and.callFake(
+(sdkMock.authorize as jasmine.Spy).and.callFake(
   (options: any, next: NextCallback<any>) => {
     if (typeof next === 'string') {
       return;
@@ -23,8 +23,8 @@ const mockLwaSdkProviders: Provider[] = [
   },
   {
     provide: LWA_SDK_OBJECT,
-    useValue: lwaSdkMock,
+    useValue: sdkMock,
   },
 ];
 
-export { lwaSdkMock, mockLwaSdkProviders };
+export { sdkMock, mockLwaSdkProviders };

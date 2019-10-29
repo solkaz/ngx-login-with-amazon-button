@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgxLoginWithAmazonButtonComponent } from './ngx-login-with-amazon-button.component';
 import { Component } from '@angular/core';
 import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.service';
-import { mockLwaSdkProviders, lwaSdkMock } from './test-injection-tokens';
+import { mockLwaSdkProviders, sdkMock } from './test-injection-tokens';
 
 function queryAmazonButton(el: HTMLElement) {
   return el.querySelector('#LoginWithAmazon') as HTMLAnchorElement;
@@ -15,7 +15,7 @@ function queryAmazonButtonImage(el: HTMLElement) {
 
 describe('NgxLoginWithAmazonButtonComponent', () => {
   beforeEach(() => {
-    (lwaSdkMock.authorize as jasmine.Spy).calls.reset();
+    (sdkMock.authorize as jasmine.Spy).calls.reset();
   });
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -46,7 +46,7 @@ describe('NgxLoginWithAmazonButtonComponent', () => {
     });
 
     it('uses options when calling authorize', () => {
-      const authorizeSpy = lwaSdkMock.authorize as jasmine.Spy;
+      const authorizeSpy = sdkMock.authorize as jasmine.Spy;
       component.handleOnClick();
       expect(authorizeSpy).toHaveBeenCalledTimes(1);
       expect(authorizeSpy.calls.mostRecent().args[0]).toEqual({
