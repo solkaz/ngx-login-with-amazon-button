@@ -1,14 +1,22 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { NgxLoginWithAmazonButtonComponent } from './ngx-login-with-amazon-button.component';
-import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.service';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { LWA_CLIENT_ID } from './injection-tokens';
+import { NgxLoginWithAmazonButtonComponent } from './ngx-login-with-amazon-button.component';
 
+/**
+ * Declares and exports the Button component and handles providing the client ID.
+ * To use this module, please include it in your `imports` array while calling the `forRoot` method.
+ * You can see an example of this in [the module's README](./ngx-login-with-amazon.module.md)
+ */
 @NgModule({
   declarations: [NgxLoginWithAmazonButtonComponent],
   imports: [],
   exports: [NgxLoginWithAmazonButtonComponent],
 })
 export class NgxLoginWithAmazonButtonModule {
+  /**
+   * Call this method when importing the `NgxLoginWithAmazonButtonModule`.
+   * This function requires a client ID for your Login with Amazon application.
+   */
   static forRoot(clientId: string): ModuleWithProviders {
     return {
       ngModule: NgxLoginWithAmazonButtonModule,

@@ -10,6 +10,7 @@ export type LwaSdkNamespaceType = typeof amazon.Login;
  * Setting the type of `lwaSdk` parameter in the service's constructor
  * would result in an error when compiling with `ngc`.
  * Relevant issue: https://github.com/angular/angular/issues/12631
+ * @ignore
  */
 export abstract class AbstractLwaSdk implements LwaSdkNamespaceType {
   abstract setClientId(clientId: string);

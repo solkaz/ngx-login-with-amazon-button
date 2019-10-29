@@ -3,6 +3,8 @@ import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.
 
 /**
  * Renders a button that implements Login With Amazon functionality.
+ * @example
+ * <lwa-button src="https://your-button-source" (authorize)="handleAuthorize($event)"></lwa-button>
  */
 @Component({
   // tslint:disable-next-line: component-selector
@@ -22,11 +24,11 @@ import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.
 })
 export class NgxLoginWithAmazonButtonComponent {
   /**
-   *  Height of the button. Defaults to `32`;
+   *  Height of the button. Defaults to `32`.
    */
   @Input() height = 32;
   /**
-   *  Width of the button. Defaults to `156`;
+   *  Width of the button. Defaults to `156`.
    */
   @Input() width = 156;
   /**
@@ -63,6 +65,9 @@ export class NgxLoginWithAmazonButtonComponent {
 
   constructor(private lwa: NgxLoginWithAmazonButtonService) {}
 
+  /**
+   * @ignore
+   */
   handleOnClick = () => {
     this.lwa.lwaSdk.authorize(
       this.options,
@@ -70,6 +75,9 @@ export class NgxLoginWithAmazonButtonComponent {
     );
   }
 
+  /**
+   * @ignore
+   */
   handleOnAuthorize = (event: AuthorizeRequest) => {
     // This method will be called if the user declines to grant permission,
     // so check that an error didn't occur.

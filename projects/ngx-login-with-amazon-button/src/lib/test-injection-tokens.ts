@@ -1,10 +1,11 @@
-import { LWA_CLIENT_ID, LWA_SDK_OBJECT } from './injection-tokens';
 import { Provider } from '@angular/core';
+import { LWA_CLIENT_ID, LWA_SDK_OBJECT } from './injection-tokens';
 import { LwaSdkNamespaceType } from './types';
 
-const lwaSdkMock: LwaSdkNamespaceType = jasmine.createSpyObj<
-  LwaSdkNamespaceType
->('lwaSdk', ['authorize', 'setClientId']);
+const lwaSdkMock = jasmine.createSpyObj<LwaSdkNamespaceType>('lwaSdk', [
+  'authorize',
+  'setClientId',
+]);
 
 (lwaSdkMock.authorize as jasmine.Spy).and.callFake(
   (options: any, next: NextCallback<any>) => {
