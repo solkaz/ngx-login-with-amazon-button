@@ -36,35 +36,35 @@
         }
       }
     },
-    "Example": {
+    "example": {
       "projectType": "application",
       "schematics": {},
-      "root": "projects/Example",
-      "sourceRoot": "projects/Example/src",
+      "root": "projects/example",
+      "sourceRoot": "projects/example/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Example",
-            "index": "projects/Example/src/index.html",
-            "main": "projects/Example/src/main.ts",
-            "polyfills": "projects/Example/src/polyfills.ts",
-            "tsConfig": "projects/Example/tsconfig.app.json",
+            "outputPath": "site/example",
+            "index": "projects/example/src/index.html",
+            "main": "projects/example/src/main.ts",
+            "polyfills": "projects/example/src/polyfills.ts",
+            "tsConfig": "projects/example/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "projects/Example/src/favicon.ico",
-              "projects/Example/src/assets"
+              "projects/example/src/favicon.ico",
+              "projects/example/src/assets"
             ],
-            "styles": ["projects/Example/src/styles.css"],
+            "styles": ["projects/example/src/styles.css"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/Example/src/environments/environment.ts",
-                  "with": "projects/Example/src/environments/environment.prod.ts"
+                  "replace": "projects/example/src/environments/environment.ts",
+                  "with": "projects/example/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -94,24 +94,24 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Example:build"
+            "browserTarget": "example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Example:build:production"
+              "browserTarget": "example:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Example:build"
+            "browserTarget": "example:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["projects/Example/tsconfig.app.json"],
+            "tsConfig": ["projects/example/tsconfig.app.json"],
             "exclude": ["**/node_modules/**"]
           }
         }

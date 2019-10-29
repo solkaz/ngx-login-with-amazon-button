@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "build:docs": "./build-docs.sh"
+    "build:site": "./build-example-site.sh && ./build-docs.sh"
   },
   "private": true,
   "dependencies": {

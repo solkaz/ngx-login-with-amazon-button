@@ -5,5 +5,5 @@ if ! [ `command -v compodoc` ]; then
 fi
 
 cd projects/ngx-login-with-amazon-button
-compodoc -p ./tsconfig.lib.json -d ../../documentation
+compodoc -p ./tsconfig.lib.json -d ../../site/docs
 cd ../..
