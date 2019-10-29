@@ -7,7 +7,6 @@ import { NgxLoginWithAmazonButtonService } from './ngx-login-with-amazon-button.
  * <lwa-button src="https://your-button-source" (authorize)="handleAuthorize($event)"></lwa-button>
  */
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'lwa-button',
   template: `
     <a id="LoginWithAmazon" (click)="handleOnClick()">
