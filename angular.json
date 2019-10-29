@@ -111,23 +111,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "projects/Example/tsconfig.app.json",
-              "projects/Example/e2e/tsconfig.json"
-            ],
+            "tsConfig": ["projects/Example/tsconfig.app.json"],
             "exclude": ["**/node_modules/**"]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/Example/e2e/protractor.conf.js",
-            "devServerTarget": "Example:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "Example:serve:production"
-            }
           }
         }
       }
