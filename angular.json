@@ -3,39 +3,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "NgxLoginWithAmazonButton": {
-      "projectType": "library",
-      "root": "projects/ngx-login-with-amazon-button",
-      "sourceRoot": "projects/ngx-login-with-amazon-button/src",
-      "prefix": "lwa",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/ngx-login-with-amazon-button/tsconfig.lib.json",
-            "project": "projects/ngx-login-with-amazon-button/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-login-with-amazon-button/src/test.ts",
-            "tsConfig": "projects/ngx-login-with-amazon-button/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-login-with-amazon-button/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ngx-login-with-amazon-button/tsconfig.lib.json",
-              "projects/ngx-login-with-amazon-button/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
     "example": {
       "projectType": "application",
       "schematics": {},
@@ -114,9 +81,50 @@
             "tsConfig": ["projects/example/tsconfig.app.json"],
             "exclude": ["**/node_modules/**"]
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "site/example",
+            "netlifyToken": "",
+            "siteId": "6d68cc7e-4a91-49f6-9bc2-096c83214cc3"
+          }
+        }
+      }
+    },
+    "NgxLoginWithAmazonButton": {
+      "projectType": "library",
+      "root": "projects/ngx-login-with-amazon-button",
+      "sourceRoot": "projects/ngx-login-with-amazon-button/src",
+      "prefix": "lwa",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-login-with-amazon-button/tsconfig.lib.json",
+            "project": "projects/ngx-login-with-amazon-button/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-login-with-amazon-button/src/test.ts",
+            "tsConfig": "projects/ngx-login-with-amazon-button/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-login-with-amazon-button/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-login-with-amazon-button/tsconfig.lib.json",
+              "projects/ngx-login-with-amazon-button/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
         }
       }
     }
   },
-  "defaultProject": "NgxLoginWithAmazonButton"
+  "defaultProject": "example"
 }

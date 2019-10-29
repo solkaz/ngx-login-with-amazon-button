@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "build:site": "./build-example-site.sh && ./build-docs.sh"
+    "build:site": "yarn build NgxLoginWithAmazonButton && ls -lah /opt/build/repo/projects && yarn ng build example --prod && ./build-docs.sh"
   },
   "private": true,
   "dependencies": {
