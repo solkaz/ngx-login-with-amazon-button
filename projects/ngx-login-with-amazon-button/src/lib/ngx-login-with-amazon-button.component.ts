@@ -40,13 +40,13 @@ export class NgxLoginWithAmazonButtonComponent {
   /**
    * If specified, will be passed to `authorize` as the `next` argument,
    * which will route the user to `nextUrl` if successfully authorized.
-   * This will cause the `authorize` output to not be triggered.
+   * Providing this value will cause the `authorize` output to not be triggered.
    */
   @Input() nextUrl?: string;
 
   /**
-   * Passed as the first parameter to `amazon.Login.authorize`.
-   * Defaults to `{ scope: ['postal_code', 'profile', 'profile:user_id'] }`
+   * Options to use when authorizing a user (with `amazon.Login.authorize`).
+   * The default options will ask for every scope (all are marked as unessential).
    */
   @Input() options: AuthorizeOptions = {
     scope: ['postal_code', 'profile', 'profile:user_id'],
@@ -84,6 +84,8 @@ export class NgxLoginWithAmazonButtonComponent {
     if (event.error === undefined) {
       this.authorize.emit(event);
     } else {
+      // TODO Emit error through output instead of logging to console
+      // so users can actually respond to errors.
       console.error(
         `Error occurred: ${event.error} - ${event.error_description}`
       );
