@@ -12,8 +12,36 @@
       type="text/javascript"
       src="https://api-cdn.amazon.com/sdk/login1.js"
     ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+    />
   </head>
   <body>
     <app-root></app-root>
+    <script
+      src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+      data-cfasync="false"
+    ></script>
+    <script>
+      window.cookieconsent.initialise({
+        palette: {
+          popup: {
+            background: "#000",
+            text: "#0f0",
+          },
+          button: {
+            background: "#0f0",
+          },
+        },
+        content: {
+          message:
+            "This website requires the use of cookies in order to use the Login with Amazon SDK.",
+          dismiss: "OK",
+          href: "./privacy-policy.html",
+        },
+      });
+    </script>
   </body>
 </html>
