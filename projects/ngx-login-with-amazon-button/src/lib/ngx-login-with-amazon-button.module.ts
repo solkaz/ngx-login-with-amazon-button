@@ -5,7 +5,6 @@ import { NgxLoginWithAmazonButtonComponent } from './ngx-login-with-amazon-butto
 /**
  * Declares and exports the Button component and handles providing the client ID.
  * To use this module, please include it in your `imports` array while calling the `forRoot` method.
- * You can see an example of this in [the module's README](./ngx-login-with-amazon.module.md)
  */
 @NgModule({
   declarations: [NgxLoginWithAmazonButtonComponent],
