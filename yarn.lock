@@ -126,6 +126,15 @@
   dependencies:
     tslib "^1.9.0"
 
+"@angular/cdk@~8.2.3":
+  version "8.2.3"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-8.2.3.tgz#16b96ffa935cbf5a646757ecaf2b19c434678f72"
+  integrity sha512-ZwO5Sn720RA2YvBqud0JAHkZXjmjxM0yNzCO8RVtRE9i8Gl26Wk0j0nQeJkVm4zwv2QO8MwbKUKGTMt8evsokA==
+  dependencies:
+    tslib "^1.7.1"
+  optionalDependencies:
+    parse5 "^5.0.0"
+
 "@angular/cli@~8.3.14":
   version "8.3.14"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-8.3.14.tgz#ce1df037d0c6a2e3c84fb1796c4b679e253a7cca"
@@ -200,6 +209,13 @@
   version "8.2.12"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-8.2.12.tgz#30f36fa763a5d1736ed5825243237469e9fb9aa8"
   integrity sha512-uXGVSC4ugkyBt7pYdI8qaKNV0TIxfjSWb3dWNuhD6b9riPtaa+xJFQrfMu7OX/tVX642aFxca4jkUHBLCyWptA==
+
+"@angular/material@^8.2.3":
+  version "8.2.3"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-8.2.3.tgz#16543e4e06a3fde2651a25cfe126e88e714ae105"
+  integrity sha512-SOczkIaqes+r+9XF/UUiokidfFKBpHkOPIaFK857sFD0FBNPvPEpOr5oHKCG3feERRwAFqHS7Wo2ohVEWypb5A==
+  dependencies:
+    tslib "^1.7.1"
 
 "@angular/platform-browser-dynamic@~8.2.12":
   version "8.2.12"
@@ -6838,6 +6854,11 @@ parse5@^3.0.1:
   dependencies:
     "@types/node" "*"
 
+parse5@^5.0.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/parse5/-/parse5-5.1.0.tgz#c59341c9723f414c452975564c7c00a68d58acd2"
+  integrity sha512-fxNG2sQjHvlVAYmzBZS9YlDp6PTSSDwa98vkD4QgVDDCAo84z5X1t5XyJQ62ImdLXx5NdIIfihey6xpum9/gRQ==
+
 parseqs@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/parseqs/-/parseqs-0.0.5.tgz#d5208a3738e46766e291ba2ea173684921a8b89d"
@@ -8868,7 +8889,7 @@ tsickle@^0.37.0:
     mkdirp "^0.5.1"
     source-map "^0.7.3"
 
-tslib@1.10.0, tslib@^1.10.0, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@1.10.0, tslib@^1.10.0, tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==

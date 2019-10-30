@@ -9,11 +9,13 @@ import { ProfileDisplayComponent } from './profile-display/profile-display.compo
 import { ScopePickerComponent } from './scope-picker/scope-picker.component';
 import { ScopePickerFieldComponent } from './scope-picker-field/scope-picker-field.component';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     BrowserModule,
     NgxLoginWithAmazonButtonModule.forRoot(environment.clientId),
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,
