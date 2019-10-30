@@ -1,20 +1,22 @@
-{{ title }}:
-<input
-  type="checkbox"
-  name="scope-{{ scope }}"
-  id="scope-{{ scope }}"
-  [checked]="scopeRequested"
-  (change)="scopeRequestChange.emit(!scopeRequested)"
-/>
+<div class="container">
+  <mat-checkbox
+    color="primary"
+    name="scope-{{ scope }}"
+    [checked]="scopeRequested"
+    (change)="scopeRequestChange.emit(!scopeRequested)"
+  >
+    {{ title }}
+  </mat-checkbox>
 
-<ng-container *ngIf="scopeRequested">
-  Essential?
-  <input
-    type="checkbox"
-    name="scope-{{ scope }}-essential"
-    id="scope-{{ scope }}-essential"
-    [checked]="scopeRequired"
-    (change)="scopeRequiredChange.emit(!scopeRequired)"
-  />
-</ng-container>
+  <ng-container *ngIf="scopeRequested">
+    <mat-checkbox
+      color="primary"
+      name="scope-{{ scope }}-essential"
+      [checked]="scopeRequired"
+      (change)="scopeRequiredChange.emit(!scopeRequired)"
+    >
+      Essential?
+    </mat-checkbox>
+  </ng-container>
+</div>
 <br />

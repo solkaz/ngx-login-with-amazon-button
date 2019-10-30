@@ -5,5 +5,12 @@
   <div *ngIf="profile.CustomerId">Customer ID: {{ profile.CustomerId }}</div>
 
   <br />
-  <button (click)="logout.emit()">Logout</button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="logout.emit()"
+    [style.width]="'100%'"
+  >
+    Logout
+  </button>
 </div>
