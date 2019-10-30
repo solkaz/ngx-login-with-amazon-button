@@ -2,3 +2,13 @@
   from = "/"
   to = "/example"
   status = 301
+
+[[redirects]]
+  from = "/privacy"
+  to = "/example/privacy-policy"
+  status = 301
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/example/privacy-policy"
+  status = 301
