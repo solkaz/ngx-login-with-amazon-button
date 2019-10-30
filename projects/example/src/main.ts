@@ -30,7 +30,7 @@ function bootstrapApp() {
  *
  * See [2ality's post about IDs being global](https://2ality.com/2012/08/ids-are-global.html)
  */
-if (globalThis['amazon-login-sdk']) {
+if (globalThis['amazon-login-sdk'] && globalThis.amazon) {
   bootstrapApp();
 } else {
   /**

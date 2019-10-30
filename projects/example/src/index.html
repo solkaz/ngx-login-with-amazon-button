@@ -11,9 +11,15 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
     />
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
   <body>
     <app-root></app-root>
     <script
@@ -24,11 +30,12 @@
       window.cookieconsent.initialise({
         palette: {
           popup: {
-            background: "#000",
-            text: "#0f0",
+            background: "#3f51b5",
+            text: "#fff",
           },
           button: {
-            background: "#0f0",
+            background: "#ff4081",
+            text: "#fff",
           },
         },
         content: {
@@ -39,10 +46,11 @@
         },
       });
     </script>
+    <script
+      async
+      id="amazon-login-sdk"
+      type="text/javascript"
+      src="https://api-cdn.amazon.com/sdk/login1.js"
+    ></script>
   </body>
-  <script
-    id="amazon-login-sdk"
-    type="text/javascript"
-    src="https://api-cdn.amazon.com/sdk/login1.js"
-  ></script>
 </html>
