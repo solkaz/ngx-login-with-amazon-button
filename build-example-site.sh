@@ -2,4 +2,4 @@
 
 yarn build NgxLoginWithAmazonButton
 node projects/example/src/environment-builder.js
-yarn ng build --prod --base-href example/
+yarn ng build --prod --deploy-url example/
