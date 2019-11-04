@@ -17,6 +17,7 @@ const defaultOptions: AuthorizeOptions = {
 })
 export class AppComponent {
   profile?: UserProfile;
+  region: amazon.Login.Region = amazon.Login.Region.NorthAmerica;
   options: AuthorizeOptions = defaultOptions;
 
   constructor(private lwa: NgxLoginWithAmazonButtonService) {}
@@ -29,6 +30,11 @@ export class AppComponent {
       }
       this.profile = res.profile;
     });
+  }
+
+  handleRegionChange = (region: amazon.Login.Region) => {
+    this.lwa.sdk.setRegion(region);
+    this.region = region;
   }
 
   logout = () => {

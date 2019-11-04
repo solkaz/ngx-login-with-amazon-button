@@ -16,6 +16,10 @@
       [options]="options"
     >
     </lwa-button>
+    <app-region-picker
+      [region]="region"
+      (regionChange)="handleRegionChange($event)"
+    ></app-region-picker>
     <app-scope-picker
       [style.width]="'100%'"
       [options]="options"

@@ -1,0 +1,10 @@
+<mat-radio-group aria-label="Select an option">
+  <ng-container *ngFor="let option of regions">
+    <mat-radio-button
+      [value]="option.region"
+      [checked]="option.region === region"
+      >{{ option.title }}</mat-radio-button
+    >
+    <br />
+  </ng-container>
+</mat-radio-group>

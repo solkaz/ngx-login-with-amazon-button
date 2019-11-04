@@ -8,12 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 import { AppComponent } from './app.component';
 import { ProfileDisplayComponent } from './profile-display/profile-display.component';
 import { ScopePickerComponent } from './scope-picker/scope-picker.component';
 import { ScopePickerFieldComponent } from './scope-picker-field/scope-picker-field.component';
 import { environment } from '../environments/environment';
 import { HeaderComponent } from './header/header.component';
+import { RegionPickerComponent } from './region-picker/region-picker.component';
 
 @NgModule({
   imports: [
@@ -21,6 +23,7 @@ import { HeaderComponent } from './header/header.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatRadioModule,
     MatCheckboxModule,
     NgxLoginWithAmazonButtonModule.forRoot(environment.clientId),
   ],
@@ -30,6 +33,7 @@ import { HeaderComponent } from './header/header.component';
     ScopePickerComponent,
     ScopePickerFieldComponent,
     HeaderComponent,
+    RegionPickerComponent,
   ],
   /**
    * For now, we need to provide `LWA_CLIENT_ID` due to issue with

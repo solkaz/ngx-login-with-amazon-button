@@ -13,6 +13,7 @@ export type LwaSdkNamespaceType = typeof amazon.Login;
  * @ignore
  */
 export abstract class AbstractLwaSdk implements LwaSdkNamespaceType {
+  abstract Region: typeof amazon.Login.Region;
   abstract setClientId(clientId: string);
   abstract getClientId(): string;
   abstract authorize(
@@ -36,4 +37,5 @@ export abstract class AbstractLwaSdk implements LwaSdkNamespaceType {
     callback?: RetrieveProfileCallback
   ): void;
   abstract logout(): void;
+  abstract setRegion(region: amazon.Login.Region): void;
 }
