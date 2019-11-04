@@ -1028,9 +1028,9 @@
   integrity sha512-Nveep4zKGby8uIvG2AEUyYOwZS8uVeHK9TgbuWYSawUDDdIgfhCKz28QzamTo//Jk7Ztt9PO3f+vzlB6a4GV1Q==
 
 "@types/login-with-amazon-sdk-browser@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@types/login-with-amazon-sdk-browser/-/login-with-amazon-sdk-browser-1.0.1.tgz#70c370a6cfce21d90f73418c34f313cda04f53aa"
-  integrity sha512-kyynDtxfgpl4QrPTwnDtrTyVZpQq6OjlHzwgl97u/uwR/1wr+/zPsoWkIEM1qGrXnNbctowo+Klo36epU2NHlg==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@types/login-with-amazon-sdk-browser/-/login-with-amazon-sdk-browser-1.0.2.tgz#f9ec16d13a60963a21afd2afb7040ddef00a2d25"
+  integrity sha512-YzH3nuyDAIL65miu3/jSOfx+dgVl5IqwrIh6X5C968JiHKa/7eZWOLDXhzu7nnwI24/jH8Mlm7EdtXyqFRZVEw==
 
 "@types/minimatch@*":
   version "3.0.3"
