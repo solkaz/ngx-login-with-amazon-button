@@ -1,5 +1,7 @@
 # NgxLoginWithAmazonButton
 
+[Online Documentation](https://ngx-login-with-amazon-button.netlify.com/docs/)
+
 ## Installation
 
 You need to include `@types/login-with-amazon-sdk-browser` in `devDependencies`:
@@ -53,10 +55,6 @@ Example:
 >
 </lwa-button>
 ```
-
-## API
-
-TODO
 
 ## License
 
