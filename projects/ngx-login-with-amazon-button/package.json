@@ -1,6 +1,23 @@
 {
   "name": "ngx-login-with-amazon-button",
   "version": "0.0.1",
+  "author": "Jeff Held <jh.software.developer@gmail.com> (https://github.com/solkaz)",
+  "homepage": "https://github.com/owner/#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solkaz/ngx-login-with-amazon-button.git",
+    "directory": "projects/ngx-login-with-amazon-button"
+  },
+  "bugs": "https://github.com/solkaz/ngx-login-with-amazon-button/issues",
+  "license": "MIT",
+  "description": "Angular integration for Login with Amazon SDK",
+  "keywords": [
+    "login-with-amazon",
+    "login with amazon",
+    "login amazon",
+    "angular",
+    "amazon"
+  ],
   "peerDependencies": {
     "@angular/common": "^8.2.4",
     "@angular/core": "^8.2.4",
