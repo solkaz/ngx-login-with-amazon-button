@@ -1,5 +1,9 @@
 # NgxLoginWithAmazonButton
 
+Angular integration with the [Login With Amazon Web SDK](https://developer.amazon.com/docs/login-with-amazon/web-docs.html).
+
+[Live Example](https://ngx-login-with-amazon-button.netlify.com/example/)
+
 [Online Documentation](https://ngx-login-with-amazon-button.netlify.com/docs/)
 
 ## Installation
@@ -38,7 +42,7 @@ import { NgxLoginWithAmazonButtonModule } from "ngx-login-with-amazon-button";
 
 @NgModule({
   // ...
-  imports: [NgxLoginWithAmazonButtonModule.forRoot("YOUR_CLIENT_ID")],
+  imports: [NgxLoginWithAmazonButtonModule.forRoot("YOUR_CLIENT_ID")]
   // ...
 })
 export class AppModule {}
