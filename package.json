@@ -5,9 +5,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:all": "./build-all.sh",
+    "build:lib": "./build-library.sh",
+    "build:example": "./build-example-site.sh",
+    "build:docs": "./build-docs.sh",
     "test": "ng test",
-    "lint": "ng lint",
-    "build:all": "./build-all.sh"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
