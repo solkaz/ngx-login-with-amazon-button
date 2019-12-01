@@ -67,7 +67,7 @@ export class NgxLoginWithAmazonButtonComponent {
   /**
    * @ignore
    */
-  handleOnClick() {
+  handleOnClick = () => {
     this.lwa.sdk.authorize(
       this.options,
       this.nextUrl || this.handleOnAuthorize
@@ -77,7 +77,7 @@ export class NgxLoginWithAmazonButtonComponent {
   /**
    * @ignore
    */
-  handleOnAuthorize(event: AuthorizeRequest) {
+  handleOnAuthorize = (event: AuthorizeRequest) => {
     // This method will be called if the user declines to grant permission,
     // so check that an error didn't occur.
     if (event.error === undefined) {
