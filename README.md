@@ -9,6 +9,8 @@ Angular integration with the [Login With Amazon Web SDK](https://developer.amazo
 
 [Online Documentation](https://ngx-login-with-amazon-button.netlify.com/docs/)
 
+**Notice**: Until version `1.0.0` has been released, the APIs here are subject to change.
+
 ## Installation
 
 To use the library itself, refer to [its installation instructions](./projects/ngx-login-with-amazon-button/README.md)
