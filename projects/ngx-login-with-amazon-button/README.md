@@ -54,8 +54,9 @@ Example:
 
 ```html
 <lwa-button
-  src="https://your-button-source"
+  src="https://your-button-image-source"
   (authorize)="handleAuthorize($event)"
+  [options]="{ scope: ['profile'] }"
 >
 </lwa-button>
 ```
