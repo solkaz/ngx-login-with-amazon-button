@@ -1,6 +1,7 @@
 # NgxLoginWithAmazonButton
 
 [![npm version](https://badge.fury.io/js/ngx-login-with-amazon-button.svg)](https://badge.fury.io/js/ngx-login-with-amazon-button)
+[![Build Status](https://travis-ci.com/solkaz/ngx-login-with-amazon-button.svg?branch=master)](https://travis-ci.com/solkaz/ngx-login-with-amazon-button)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6d68cc7e-4a91-49f6-9bc2-096c83214cc3/deploy-status)](https://app.netlify.com/sites/ngx-login-with-amazon-button/deploys)
 
 Angular integration with the [Login With Amazon Web SDK](https://developer.amazon.com/docs/login-with-amazon/web-docs.html).
